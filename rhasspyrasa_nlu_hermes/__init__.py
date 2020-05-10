@@ -255,6 +255,11 @@ class NluHermesMqtt(HermesClient):
                                 # Finish current entity
                                 last_token = entity_tokens[-1]
                                 entity_tokens[-1] = f"{last_token}]({entity.entity})"
+                                if entity.value != entity.raw_value:
+                                    synonym = f":{entity.value}"
+                                else:
+                                    synonym = ""
+                                entity_tokens[-1] = f"{last_token}]({entity.entity}{synonym})"
                                 sentence_tokens.extend(entity_tokens)
                                 entity = None
                                 entity_tokens = []
@@ -280,6 +285,11 @@ class NluHermesMqtt(HermesClient):
                             # Finish final entity
                             last_token = entity_tokens[-1]
                             entity_tokens[-1] = f"{last_token}]({entity.entity})"
+                            if entity.value != entity.raw_value:
+                                synonym = f":{entity.value}"
+                            else:
+                                synonym = ""
+                            entity_tokens[-1] = f"{last_token}]({entity.entity}{synonym})"
                             sentence_tokens.extend(entity_tokens)
 
                         # Print single example
