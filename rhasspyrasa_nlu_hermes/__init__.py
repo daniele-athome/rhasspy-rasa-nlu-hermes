@@ -20,7 +20,6 @@ from rhasspyhermes.client import GeneratorType, HermesClient, TopicArgs
 from rhasspyhermes.intent import Intent, Slot, SlotRange
 from rhasspyhermes.nlu import (
     NluError,
-    NluIntent,
     NluIntentNotRecognized,
     NluIntentParsed,
     NluQuery,
