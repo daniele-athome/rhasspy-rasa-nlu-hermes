@@ -102,7 +102,6 @@ class NluHermesMqtt(HermesClient):
     ) -> typing.AsyncIterable[
         typing.Union[
             NluIntentParsed,
-            typing.Tuple[NluIntent, TopicArgs],
             NluIntentNotRecognized,
             NluError,
         ]
